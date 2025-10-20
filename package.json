@@ -1,0 +1,13 @@
+{
+  "name": "cpsc-481-project",
+  "private": true,
+  "workspaces": [
+    "fitness-application/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w fitness-application/web",
+    "build": "npm run build -w fitness-application/web",
+    "preview": "npm run preview -w fitness-application/web"
+  }
+}
+
