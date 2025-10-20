@@ -1,0 +1,119 @@
+:root {
+  --bg: #0b1020;
+  --card: #121933;
+  --text: #e6e9f0;
+  --muted: #9aa3b2;
+  --primary: #5b8cff;
+  --primary-700: #4677f0;
+  --border: #223055;
+  --ok: #39d98a;
+  --warn: #f7b955;
+  --bad: #ff6b6b;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 10% 5%, #1a2250 0%, #0b1020 60%);
+}
+
+.container {
+  max-width: 840px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 0 0 16px 0;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%), var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+form .row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+label { color: var(--muted); }
+
+.inline { display: flex; gap: 18px; flex-wrap: wrap; }
+.inline label { color: var(--text); }
+
+input[type="number"], select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0f1530;
+  color: var(--text);
+}
+
+.with-suffix { position: relative; }
+.with-suffix span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1530;
+  color: var(--text);
+  cursor: pointer;
+}
+button.primary {
+  background: linear-gradient(180deg, rgba(91,140,255,0.15) 0%, rgba(91,140,255,0.05) 100%), var(--primary);
+  border-color: transparent;
+}
+button.primary:hover { background: var(--primary-700); }
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.result {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+.result .label { color: var(--muted); margin-bottom: 6px; }
+.result .value { font-size: 28px; font-weight: 700; }
+.result .category { margin-top: 4px; color: var(--muted); }
+
+footer { color: var(--muted); margin: 12px 6px; }
+
+.cat-ok { color: var(--ok); }
+.cat-warn { color: var(--warn); }
+.cat-bad { color: var(--bad); }
+
+@media (max-width: 520px) {
+  form .row { grid-template-columns: 1fr; }
+}
+

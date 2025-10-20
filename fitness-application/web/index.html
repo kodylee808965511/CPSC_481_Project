@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Application</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Fitness Application</h1>
+      <section class="card">
+        <form id="calc-form" novalidate>
+          <div class="row">
+            <label>Units</label>
+            <div class="inline">
+              <label><input type="radio" name="units" value="metric" checked /> Metric (kg, cm)</label>
+              <label><input type="radio" name="units" value="imperial" /> Imperial (lb, in)</label>
+            </div>
+          </div>
+          <div class="row">
+            <label for="age">Age</label>
+            <input id="age" type="number" min="1" max="120" value="25" required />
+          </div>
+          <div class="row">
+            <label for="sex">Sex</label>
+            <select id="sex">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="height">Height</label>
+            <div class="with-suffix">
+              <input id="height" type="number" min="0" step="any" placeholder="e.g., 172" required />
+              <span id="height-unit">cm</span>
+            </div>
+          </div>
+          <div class="row">
+            <label for="weight">Weight</label>
+            <div class="with-suffix">
+              <input id="weight" type="number" min="0" step="any" placeholder="e.g., 68" required />
+              <span id="weight-unit">kg</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" id="reset">Reset</button>
+            <button type="submit" id="calculate" class="primary">Calculate</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <h2>Results</h2>
+        <div class="results">
+          <div class="result">
+            <div class="label">BMI</div>
+            <div class="value" id="bmi-value">-</div>
+            <div class="category" id="bmi-category">-</div>
+          </div>
+          <div class="result">
+            <div class="label">BFP (%)</div>
+            <div class="value" id="bfp-value">-</div>
+            <div class="category" id="bfp-category">-</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <small>BMI = weight_kg / (height_m^2). BFP (Deurenberg) = 1.20*BMI + 0.23*Age - 10.8*sex - 5.4 (sex=1 male, 0 female).</small>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
