@@ -2,12 +2,20 @@
   "name": "cpsc-481-project",
   "private": true,
   "workspaces": [
-    "fitness-application/web"
+    "fitness-application/web",
+    "fitness-application/backend"
   ],
   "scripts": {
-    "dev": "npm run dev -w fitness-application/web",
+    "predev": "kill-port 5001",
+    "dev": "concurrently -k --names \"backend,frontend\" --prefix \"[{name}]\" \"npm run dev -w fitness-application/backend\" \"npm run dev -w fitness-application/web\"",
+    "frontend": "npm run dev -w fitness-application/web",
+    "backend": "npm run dev -w fitness-application/backend",
     "build": "npm run build -w fitness-application/web",
     "preview": "npm run preview -w fitness-application/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "cross-port-killer": "^1.4.0",
+    "kill-port": "^2.0.1"
   }
 }
-

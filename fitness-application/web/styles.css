@@ -31,6 +31,33 @@ h1 {
   margin: 0 0 16px 0;
 }
 
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tab-button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  color: var(--text);
+  border-color: transparent;
+  background: linear-gradient(180deg, rgba(91,140,255,0.18) 0%, rgba(91,140,255,0.05) 100%), rgba(91,140,255,0.2);
+  box-shadow: 0 6px 20px rgba(91,140,255,0.3);
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
 .card {
   background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%), var(--card);
   border: 1px solid var(--border);
@@ -53,13 +80,18 @@ label { color: var(--muted); }
 .inline { display: flex; gap: 18px; flex-wrap: wrap; }
 .inline label { color: var(--text); }
 
-input[type="number"], select {
+input[type="number"], input[type="text"], select, textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: #0f1530;
   color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 .with-suffix { position: relative; }
@@ -92,6 +124,13 @@ button.primary {
   border-color: transparent;
 }
 button.primary:hover { background: var(--primary-700); }
+button.secondary {
+  background: transparent;
+  color: var(--muted);
+}
+button.secondary:hover {
+  color: var(--text);
+}
 
 .results {
   display: grid;
@@ -113,7 +152,111 @@ footer { color: var(--muted); margin: 12px 6px; }
 .cat-warn { color: var(--warn); }
 .cat-bad { color: var(--bad); }
 
+.helper-text {
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.feedback {
+  min-height: 24px;
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.feedback.error {
+  color: var(--bad);
+}
+
+.feedback.success {
+  color: var(--ok);
+}
+
+.exercise-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.exercise, .recipe {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(255,255,255,0.02);
+}
+
+.exercise h3, .recipe h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.exercise span, .recipe span {
+  display: inline-block;
+  margin-right: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.exercise p, .recipe p {
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+.recipe-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.recipe-ingredients {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.nutrition-results {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.nutrition-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(255,255,255,0.02);
+}
+
+.nutrition-card h3 {
+  margin: 0 0 6px;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.nutrition-item {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 @media (max-width: 520px) {
   form .row { grid-template-columns: 1fr; }
+  .tabs { flex-wrap: wrap; }
 }
 
